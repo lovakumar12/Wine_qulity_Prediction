@@ -15,4 +15,22 @@ except Exception as e:
     raise e
 
 
+## next check the data validation pipelinefrom mlProject.config.configuration import ConfigurationManager
+from mlProject.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
+from mlProject import logger
+
+
+STAGE_NAME = "Data Validation stage"
+
+try:
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+    data_ingestion=DataValidationTrainingPipeline()
+    data_ingestion.main()
+    
+    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<")
+except Exception as e:
+    logger.exception(e)
+    raise e
+    
+
 
