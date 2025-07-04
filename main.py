@@ -46,3 +46,32 @@ try:
 except Exception as e:
     logger.exception(e)
     raise e
+
+
+### next check the model trainer pipeline
+from mlProject.pipeline.stage_04_model_trainer import ModelTrainerTrainingPipeline
+STAGE_NAME = "Model Trainer stage"
+try:    
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+    model_trainer = ModelTrainerTrainingPipeline()
+    model_trainer.main()
+    
+    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<")  
+    
+except Exception as e:
+    logger.exception(e)
+    raise e
+
+
+#### next check the model evaluation pipeline
+from mlProject.pipeline.stage_05_model_evaluation import ModelEvaluationTrainingPipeline
+STAGE_NAME = "Model Evaluation stage"
+try:
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+    model_evaluation = ModelEvaluationTrainingPipeline()
+    model_evaluation.main()
+    
+    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<")
+except Exception as e:
+    logger.exception(e)
+    raise e
